@@ -57,7 +57,7 @@
         get_lyrics(res.snippet.title).then(
           (lyrics) =>  {
             document.getElementById("lyrics").innerHTML = replaceLineBreaks(lyrics);
-            find_translate(lyrics)
+            get_translate(lyrics)
             .then(translate => document.getElementById("traduction").innerHTML = translate);
           });
         }
