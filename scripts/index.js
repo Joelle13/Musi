@@ -9,7 +9,3 @@ searchForm.addEventListener('submit', () => {
     // A FAIRE : doit redirect sur la même window et non en ouvrir une autre
     window.open("http://127.0.0.1:5500/song.html?song=" + inputSong.value); // on passe en parametre de l'url les informations à traiter dans l'autre page
 })
-
-
-//check
-console.log('je suis sur la page index')

@@ -5,6 +5,9 @@ const api_ytb = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&t
 
 const api_traduction = "https://lingva.ml/api/v1/en/fr/";
 
+const traductionLoader = document.getElementById("traductionLoader");
+const lyricsLoader = document.getElementById("lyricsLoader");
+
 async function find_music(q) {
   var query = encodeURI(api_ytb + q);
   const res = await fetch(query);
@@ -38,6 +41,7 @@ function get_title(video) {
 
 async function get_lyrics(video) {
   let res = get_artist_title(video);
+  lyricsLoader.remove();
   return find_lyrics(res[0], res[1]);
 }
 
@@ -50,7 +54,7 @@ async function get_translate(lyrics) {
     const res = await find_translate(str);
     trad += res + "<br>";
   }
-
+  traductionLoader.remove();
   return trad;
 }
 

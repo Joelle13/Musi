@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Musi</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -33,12 +33,24 @@
       </div>
       <div class="lyrics">
         <div class="original-lyrics">
-            <h5>Lyrics original</h5>
-            <p id="lyrics"></p>
+            <h5>Paroles originales</h5>
+            <p id="lyrics">Pas de paroles disponibles pour le moment</p>
+            <div class="lds-ring" id="lyricsLoader">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
         </div>
         <div class="traduction">
             <h5>Traduction</h5>
-            <p id="traduction"></p>
+            <p id="traduction">Pas de traduction disponible pour le moment</p>
+            <div class="lds-ring" id="traductionLoader">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
         </div>
       </div>
     </div>
@@ -50,18 +62,6 @@
     ></script>
     <script src="./scripts/tools.js"></script>
     <script src="./scripts/api.js"></script>
-    <script>
-      find_music("imagin dragons demons") //A remplacer par la valeur de l'input de la première page
-      .then((res) => {
-        get_video(res).then(url => document.getElementById("video").src = url);
-        get_lyrics(res.snippet.title).then(
-          (lyrics) =>  {
-            document.getElementById("lyrics").innerHTML = replaceLineBreaks(lyrics);
-            get_translate(lyrics)
-            .then(translate => document.getElementById("traduction").innerHTML = translate);
-          });
-        }
-      );
-    </script>
+    <script src="./scripts/song.js"></script>
   </body>
 </html>
