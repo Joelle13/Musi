@@ -19,6 +19,7 @@ async function find_lyrics(artist, title) {
   var query = encodeURI(api_lyrics + artist + "/" + title);
   const res = await fetch(query);
   const data = await res.json();
+  lyricsLoader.remove();
   return data.lyrics;
 }
 
@@ -41,7 +42,6 @@ function get_title(video) {
 
 async function get_lyrics(video) {
   let res = get_artist_title(video);
-  lyricsLoader.remove();
   return find_lyrics(res[0], res[1]);
 }
 
